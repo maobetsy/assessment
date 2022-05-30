@@ -1,0 +1,159 @@
+/***  GLOBAL STYLES  ***/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #413352;
+  /* font-family: ; */
+  line-height: 1.6;
+  background-color: #D4CFC8;
+  display: grid;
+  grid-template-columns: auto;
+  min-height: 100vh;
+}
+
+nav {
+  padding-left: 0 !important;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 540px;
+}
+
+/***  TYPOGRAPHY  ***/
+
+/***  LINKS  ***/
+
+.nav-link,
+.nav-link a {
+  color: #413352;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link:hover {
+  color: inherit;
+}
+
+.nav-link::after {
+  content: '';
+  background-color: #413352;
+  height: .25rem;
+  width: 0;
+  left: 0;
+  border-radius: .5rem;
+  transform: rotate(10deg);
+  transition: 0.3s;
+  position: absolute;
+  bottom: -1px;
+}
+
+.nav-link:hover::after {
+  width: 85%;
+}
+
+/***  HEADER STYLES  ***/
+
+.main-header {
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1.5px #413352 solid;
+  align-self: start;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+/***  MAIN STYLES  ***/
+
+/* GENERAL */
+
+main {
+  align-self: start;
+  margin-bottom: 1rem;
+}
+
+.dictionary {
+  color: #D4CFC8;
+  background-color: #413352;
+  border-radius: .25rem;
+}
+
+.wrapper {
+  padding: 1.5rem;
+}
+
+/* INTRO & IMG */
+
+
+/* FORM incl. button */
+
+.search-form {
+  display: flex;
+}
+
+.search-btn {
+  color: #413352 !important;
+  background-color: #FFF;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+#search {
+  padding: 6px 12px;
+  display: inline-block;
+  width: 100%;
+  border: none;
+  border-radius: .25rem 0 0 .25rem;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Results */
+
+.results,
+.searching-text {
+  display: none;
+}
+
+/***  FOOTER STYLES  ***/
+
+.main-footer {
+  /* color: #D4CFC8; */
+  /* background-color: #413352; */
+  color: #413352;
+  border-top: 1.5px #413352 solid;
+  padding: 0.5rem;
+  align-self: end;
+}
+
+@media screen and (min-width: 277px) {
+  .nav-list {
+    justify-content: end;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .container {
+    max-width: 740px;
+  }
+}

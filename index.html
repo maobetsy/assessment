@@ -5,15 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dictionary</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/709977f210.js" crossorigin="anonymous"></script>
+
+  <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <!-- style header border-bottom -->
   <header class="main-header container">
-    <div class="row">
-      <h1 class="main-title col">Dictionary</h1>
+    <div class="row align-items-center">
+      <a href="#" class="logo">Dictionary</a>
 
       <nav class="col">
         <!-- style nav-list with flexbox, remove default list style -->
@@ -35,12 +46,12 @@
 
   <main class="container">
     <section class="intro row">
-      <div class="intro-image col-md-4">
+      <div class="intro-image col-auto">
         <img src="img/cat-with-book.png" alt="Cartoon cat with green book">
       </div>
 
-      <div class="intro-text col-md-8">
-        <h2 class="intro-title">English Dictionary</h2>
+      <div class="intro-text col-auto">
+        <h1 class="main-title">English Dictionary</h1>
         <p>To look up the definition of a word:</p>
         <ol>
           <li>Type a word into the search field below.</li>
@@ -54,7 +65,7 @@
         <form action="" class="search-form">
 
           <!-- https://www.w3.org/WAI/tutorials/forms/labels/#note-on-hiding-elements -->
-          <label for="search">Search</label>
+          <label for="search" class="visuallyhidden">Search</label>
           <input type="text" name="search" id="search" placeholder="e.g. cat">
           <button type="submit" class="btn search-btn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
         </form> <!-- end form -->
@@ -78,10 +89,9 @@
     </section> <!-- end dictionary section -->
   </main>
 
-  <footer class="main-footer">
-    <div class="container">
-      <p>&copy; 2022. All Rights Reserved.</p>
-    </div>
+  <footer class="main-footer container">
+    <a class="attribution" href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
+    <p>&copy; 2022. All Rights Reserved.</p>
   </footer>
 
   <script src="js/main.js"></script>

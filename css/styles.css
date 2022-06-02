@@ -47,6 +47,12 @@ ol {
 }
 
 .logo,
+.nav-item {
+  position: relative;
+  top: -50px;
+}
+
+.logo,
 .logo a,
 .nav-link,
 .nav-link a,
@@ -59,10 +65,6 @@ ol {
 .info-link {
   color: inherit;
   text-decoration: underline dotted;
-}
-
-.nav-item {
-  position: relative;
 }
 
 .nav-link:hover {

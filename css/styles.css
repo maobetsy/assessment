@@ -125,16 +125,22 @@ main {
   margin-bottom: 1rem;
 }
 
-.dictionary,
-.info {
+.dictionary-form {
   color: #FFF;
   background-color: #413352;
   border-radius: .25rem;
+  padding: 3rem 3rem 3rem 3rem;
 }
 
-.wrapper {
+.info {
   padding: 3rem;
+  background-color: #413352;
+  color: #FFF;
+  border-radius: .25rem;
 }
+
+
+
 
 /* INTRO & IMG */
 
@@ -155,7 +161,7 @@ main {
   border-radius: 0 .25rem .25rem 0;
 }
 
-#search {
+.search-input {
   padding: 6px 12px;
   display: inline-block;
   width: 100%;
@@ -188,18 +194,26 @@ main {
 
 /* RESULTS SECTION */
 
-/* .results,
+.dictionary-results {
+  padding: 0 3rem 3rem 3rem;
+  background-color: #413352;
+  color: #FFF;
+  border-radius: 0 0 .25rem .25rem;
+}
+
+.dictionary-results,
 .searching-text {
   display: none;
-} */
+}
+/* padding-bottom = 0 in JS */
 
 
-.searching-text,
 .word,
 .word-part,
-.definition-title,
+.definition-subtitle,
 .definition-text {
-  margin: 1rem 0;
+  padding: 0.5rem 0;
+  display: none;
 }
 
 .word {
@@ -213,7 +227,7 @@ main {
   font-weight: 300;
 }
 
-.definition-title {
+.definition-subtitle {
   padding-top: 0.75rem;
   font-size: 1.1rem;
   font-weight: 600;
@@ -223,8 +237,8 @@ main {
   font-weight: 700;
 }
 
-.dictionary-word-content,
-.definition-content {
+.word-part,
+.definition-text {
   border-bottom: 0.15rem #D4CFC8 solid;
 }
 

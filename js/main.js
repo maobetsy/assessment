@@ -45,7 +45,6 @@ const definitionText = document.querySelector('.definition-text');
 
 const errorText = document.querySelector('.error');
 
-
 // Event Listeners
 
 searchForm.addEventListener('submit', (e) => {
@@ -112,19 +111,16 @@ function displayError(word) {
 }
 
 function displayResult(word, partOfSpeech, definition) {
-  results.style.display = 'block';
+  const resultsElements = [results, wordText, posText, subtitleText, definitionText];
 
-  wordText.style.display = 'block';
+  resultsElements.forEach(element => {
+  element.style.display = 'block';
+  });
+
   wordText.textContent = word;
-
-  posText.style.display = 'block';
   posText.textContent = partOfSpeech;
-
-  definitionText.style.display = 'block';
-  definitionText.textContent = definition;
-
-  subtitleText.style.display = 'block';
   subtitleText.textContent = 'Definition';
+  definitionText.textContent = definition;
 }
 
 function typeSearchingText(word) {

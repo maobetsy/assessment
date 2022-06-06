@@ -26,11 +26,11 @@ ol {
 }
 
 .container {
-  max-width: 540px;
+  max-width: 640px;
   margin-bottom: 0;
 }
 
-/***  TYPOGRAPHY  ***/
+/***  MAIN TYPOGRAPHY  ***/
 
 .main-title {
   font-family: 'Lato', sans-serif;
@@ -139,9 +139,6 @@ main {
   border-radius: .25rem;
 }
 
-
-
-
 /* INTRO & IMG */
 
 .intro {
@@ -169,7 +166,6 @@ main {
   border-radius: .25rem 0 0 .25rem;
 }
 
-
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #585858;
   opacity: 1; /* Firefox */
@@ -192,21 +188,22 @@ main {
   width: 1px;
 }
 
-/* RESULTS SECTION */
-
-.dictionary-results {
-  padding: 0 3rem 3rem 3rem;
-  background-color: #413352;
-  color: #FFF;
-  border-radius: 0 0 .25rem .25rem;
-}
+/* SEARCHING TEXT & RESULTS */
 
 .dictionary-results,
 .searching-text {
   display: none;
 }
-/* padding-bottom = 0 in JS */
 
+.dictionary-results {
+  position: relative;
+  top: -3rem;
+  z-index: 1;
+  padding: 0 3rem 3rem 3rem;
+  background-color: #413352;
+  color: #FFF;
+  border-radius: 0 0 .25rem .25rem;
+}
 
 .word,
 .word-part,

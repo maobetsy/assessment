@@ -25,11 +25,11 @@ window.onload = () => {
 
 // Assigning DOM elements to variables
 
-const dictionaryFormWrapper = document.querySelector('.dictionary-form');
-
 const searchForm = document.querySelector('.search-form');
 
 const searchInput = document.querySelector('.search-input');
+
+const validationMessage = document.querySelector('.validation-message');
 
 const searchingText = document.querySelector('.searching-text');
 
@@ -49,6 +49,27 @@ const errorText = document.querySelector('.error');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  resetDisplay();
+
+  let word = searchInput.value.toLowerCase();
+  let check = checkInput(word);
+
+  if (check) {
+    displayValidationMessage();
+  }
+  else {
+    getResult(word);
+  }
+});
+
+function resetDisplay() {
+  anime({
+    targets: '.validation-message',
+    translateY: -5,
+    direction: 'alternate',
+    loop: false,
+    easing: 'linear'
+  });
 
   anime({
     targets: '.dictionary-results',
@@ -58,24 +79,55 @@ searchForm.addEventListener('submit', (e) => {
     easing: 'linear'
   });
 
-  results.style.display = 'none';
-  wordText.style.display = 'none';
-  posText.style.display = 'none';
-  subtitleText.style.display = 'none';
-  definitionText.style.display = 'none';
+  validationMessage.style.display = 'none';
+  validationMessage.textContent = '';
 
   errorText.textContent = '';
+
+  results.style.display = 'none';
+
+  wordText.style.display = 'none';
   wordText.textContent = '';
+
+  posText.style.display = 'none';
   posText.textContent = '';
+
+  subtitleText.style.display = 'none';
   subtitleText.textContent = '';
+
+  definitionText.style.display = 'none';
   definitionText.textContent = '';
-
-  let word = searchInput.value;
-  getResult(word);
-});
-
-
+}
 // Functions
+
+function displayValidationMessage() {
+  anime({
+    targets: '.validation-message',
+    translateY: 10,
+    direction: 'alternate',
+    loop: false,
+    easing: 'linear'
+  });
+
+  searchingText.style.display = 'none';
+  searchingText.textContent = '';  
+
+  let message = `Your search must only contain letters. Spaces and hyphens are only accepted if you are searching for open or hyphenated compound words (e.g. 'ice cream', 'mother-in-law').`;
+  
+  validationMessage.style.display = 'block';
+  validationMessage.classList.add('invalid');
+  
+  validationMessage.textContent = message;
+}
+
+function checkInput(word) {
+  return (/[0-9]/.test(word)) || 
+         (/^\-+$/i.test(word)) || 
+         (/^\s+$/i.test(word)) ||
+         (/\s+-/.test(word)) ||
+         (/- /.test(word)) ||
+         (/[!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(word));
+}
 
 async function getResult(word) {
   typeSearchingText(word);

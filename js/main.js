@@ -1,5 +1,4 @@
-// Animated header section on page load
-
+// Animated header section on page load using anime.js library
 window.onload = () => {
   anime({
     targets: '.logo, .nav-item',
@@ -23,30 +22,20 @@ window.onload = () => {
 };
 
 
+
 // Assigning DOM elements to variables
-
 const searchForm = document.querySelector('.search-form');
-
 const searchInput = document.querySelector('.search-input');
-
 const validationMessage = document.querySelector('.validation-message');
-
 const searchingText = document.querySelector('.searching-text');
-
 const results = document.querySelector('.dictionary-results');
-
 const wordText = document.querySelector('.word');
-
 const posText = document.querySelector('.word-part');
-
 const subtitleText = document.querySelector('.definition-subtitle');
-
 const definitionText = document.querySelector('.definition-text');
-
 const errorText = document.querySelector('.error');
 
 // Event Listeners
-
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
   resetDisplay();
@@ -62,6 +51,11 @@ searchForm.addEventListener('submit', (e) => {
   }
 });
 
+
+// Functions
+/** 
+ * Clears results section, searching text and validation message
+ */
 function resetDisplay() {
   anime({
     targets: '.validation-message',
@@ -98,8 +92,28 @@ function resetDisplay() {
   definitionText.style.display = 'none';
   definitionText.textContent = '';
 }
-// Functions
 
+/**
+ * Checks if the search input contains: numbers, symbols, repeating patterns of spaces/hyphens, only a space or a hyphen, or a combination of spaces and hyphens
+ * 
+ * @param {string} word value stored in searchInput
+ * @returns {boolean} 
+ */ 
+function checkInput(word) {
+  return (/[0-9]/.test(word)) || 
+         (/^\-+$/i.test(word)) || 
+         (/^\s+$/i.test(word)) ||
+         (/\s+-/.test(word)) ||
+         (/- /.test(word)) ||
+         (/[!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(word));
+}
+
+
+/**
+ * Outputs a form validation error message
+ * 
+ * @returns {string}
+ */
 function displayValidationMessage() {
   anime({
     targets: '.validation-message',
@@ -120,15 +134,12 @@ function displayValidationMessage() {
   validationMessage.textContent = message;
 }
 
-function checkInput(word) {
-  return (/[0-9]/.test(word)) || 
-         (/^\-+$/i.test(word)) || 
-         (/^\s+$/i.test(word)) ||
-         (/\s+-/.test(word)) ||
-         (/- /.test(word)) ||
-         (/[!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/.test(word));
-}
 
+/**
+ * Fetch API data and store in two variables: partOfSpeech, definition
+ * 
+ * @param {string} word value stored in searchInput
+ */
 async function getResult(word) {
   typeSearchingText(word);
 
@@ -155,6 +166,11 @@ async function getResult(word) {
   }
 }
 
+/**
+ * Displays error message if data could not be fetched
+ * 
+ * @param {string} word value stored in searchInput
+ */
 function displayError(word) {
   results.style.display = 'block';
   
@@ -162,6 +178,13 @@ function displayError(word) {
   errorText.textContent = `Oops! No definition found for ${word}.`;
 }
 
+/**
+ * Displays data to the user
+ * 
+ * @param {string} word value stored in searchInput
+ * @param {string} partOfSpeech fetched API data
+ * @param {string} definition fetched API data
+ */
 function displayResult(word, partOfSpeech, definition) {
   const resultsElements = [results, wordText, posText, subtitleText, definitionText];
 
@@ -175,6 +198,11 @@ function displayResult(word, partOfSpeech, definition) {
   definitionText.textContent = definition;
 }
 
+/**
+ * Animated typography using typed.js library while the API data is fetched
+ * 
+ * @param {string} word value stored in searchInput
+ */
 function typeSearchingText(word) {
   const searchingString = `Searching for <span class="search-word">'${word}'</span> ...`;
 
@@ -182,30 +210,30 @@ function typeSearchingText(word) {
   searchingText.style.marginTop = '1rem';
 
   const typed = new Typed('.searching-text', {
-    /*
-    @property {array} strings strings to be typed
-    */
+    /**
+     * @property {array} strings strings to be typed
+     */
     strings: [
       searchingString,
     ],
   
-    /*
-    @property {number} typeSpeed type speed in milliseconds
-    */
+    /**
+     * @property {number} typeSpeed type speed in milliseconds
+     */
     typeSpeed: 0,
 
-    /*
-    @property {string} fadeOutClass css class for fade animation
-    @property {boolean} fadeOutDelay Fade out delay in milliseconds
-    */
+    /**
+     * @property {string} fadeOutClass css class for fade animation
+     * @property {boolean} fadeOutDelay Fade out delay in milliseconds
+     */
     fadeOut: true,
     fadeOutClass: 'typed-fade-out',
     fadeOutDelay: 50,
   
-    /*
-     @property {boolean} loop loop strings
-     @property {number} loopCount amount of loops
-    */
+    /**
+     * @property {boolean} loop loop strings
+     * @property {number} loopCount amount of loops
+     */
     loop: true,
     loopCount: 1,
 

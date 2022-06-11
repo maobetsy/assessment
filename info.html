@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dictionary | Home</title>
+  <title>Dictionary | Information</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,8 +17,6 @@
   <!-- CSS Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- typed js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -45,43 +43,19 @@
   </header> <!-- end header -->
 
   <main class="container">
-    <section class="intro align-items-end row">
-      <div class="intro-image col-auto">
-        <img src="img/cat-with-book.png" alt="Cartoon cat with green book">
-      </div>
+    <section class="info">
+      <div class="wrapper">
+        <h1 class="main-title">How to use?</h1>
+        <p>This project serves as a dictionary tool or application. To use this simple application, you can begin by typing a search term or word into the input field. When you submit your search term, the results will be returned from an API. The results will display the word's definition and part of speech.</p>
 
-      <div class="intro-text col-auto">
-        <h1 class="main-title">English Dictionary</h1>
-        <p>To look up the definition of a word:</p>
-        <ol>
-          <li>Type a word into the search field below.</li>
-          <li>Press submit.</li>
-        </ol>
-      </div>
-    </section> <!-- end intro section -->
+        <p class="mt-3">This project utilises the <a class="info-link" href="https://dictionaryapi.dev/">Free Dictionary API</a>.</p>
 
-    <section class="dictionary-form">
-        <form class="search-form">
-          <label for="search" class="visuallyhidden">Search</label>
-          <input type="text" class="search-input" placeholder="e.g. cat" required>
-          <button type="submit" class="btn search-btn"><i class="fa-solid fa-magnifying-glass fa-2x"></i></button>
-        </form> <!-- end form -->
-
-        <span class="validation-message"></span>
-        <span class="searching-text">x</span>
-      </section> <!-- end dictionary-form section -->
-
-      <section class="dictionary-results">
-        <span class="word"></span>
-        <span class="word-part"></span>
-        <span class="definition-subtitle"></span>
-        <span class="definition-text"></span>
-        <span class="error"></span>
-      </section> <!-- end dictionary-results section -->
+        <p class="mt-3">The search field only accepts letters. Spaces and hyphens are only accepted if you are searching for open or hyphenated compound words. Numbers, symbols and repeating spaces or hyphens are not accepted.</p>
+      </div> <!-- end wrapper -->
+    </section> <!-- end info section -->
   </main>
 
   <footer class="main-footer container">
-    <a class="attribution" href="https://www.flaticon.com/free-icons/cat" title="cat icons">Cat icons created by Freepik - Flaticon</a>
     <p>&copy; 2022. All Rights Reserved.</p>
   </footer>
 
